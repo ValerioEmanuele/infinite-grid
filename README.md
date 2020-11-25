@@ -1,4 +1,4 @@
-# Infinity Grid [![Build Status](https://travis-ci.org/ValerioEmanuele/infinite-grid.svg?branch=master)](https://travis-ci.org/ValerioEmanuele/infinite-grid)
+# Infinity Grid [![Build Status](https://travis-ci.org/ValerioEmanuele/infinite-grid.svg?branch=master)](https://travis-ci.org/ValerioEmanuele/infinite-grid) [![Coverage Status](https://coveralls.io/repos/github/ValerioEmanuele/infinite-grid/badge.svg?branch=master)](https://coveralls.io/github/ValerioEmanuele/infinite-grid?branch=master)
 This project solves the following problem:
 
 Consider an infinite grid of white and black squares. The grid is initially all white and there is a machine in one cell facing right. It will move based on the following rules:
