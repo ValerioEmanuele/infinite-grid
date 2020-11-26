@@ -4,8 +4,4 @@ dist: trusty
 jdk:
   - openjdk8
 
-before_install:
-    - apt-get update
-    - apt-get install -y maven
-
 script: mvn clean install
