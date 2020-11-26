@@ -7,4 +7,4 @@ script:
   - mvn clean install
 
 after_success:
-  - mvn -V --no-transfer-progress clean cobertura:cobertura coveralls:report -Ptravis-cobertura
+  - mvn -V clean cobertura:cobertura coveralls:report -Ptravis-cobertura
