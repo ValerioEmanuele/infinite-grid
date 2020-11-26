@@ -110,11 +110,11 @@ class TestMachine {
 		machine.setDirection(Direction.LEFT);
 		
 		machine.move();
-		assertEquals(Point.of(BigInteger.TWO.negate(), BigInteger.ONE.negate()), machine.getPosition());
+		assertEquals(Point.of(BigInteger.valueOf(2).negate(), BigInteger.ONE.negate()), machine.getPosition());
 		
 		machine.setDirection(Direction.DOWN);
 		machine.move();
-		assertEquals(Point.of(BigInteger.TWO.negate(), BigInteger.TWO.negate()), machine.getPosition());
+		assertEquals(Point.of(BigInteger.valueOf(2).negate(), BigInteger.valueOf(2).negate()), machine.getPosition());
 		
 	}
 

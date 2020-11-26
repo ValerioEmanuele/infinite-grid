@@ -2,6 +2,7 @@ package blog.valerioemanuele.ab;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Collections;
 import java.util.Map;
 
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +26,8 @@ class IntegrationTest {
 	@Test
 	@DisplayName("Empty number of steps returns client error")
 	void test_emptyNumberOfSteps() {
-		ResponseEntity<Void> response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Map.of("numberOfSteps", ""));
+		
+		ResponseEntity<Void> response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Collections.singletonMap("numberOfSteps", ""));
 		assertTrue(response.getStatusCode().is4xxClientError());
 	}
 	
@@ -33,7 +35,7 @@ class IntegrationTest {
 	@DisplayName("Not valid number of steps returns client error")
 	void test_notValidNumberOfSteps() {
 		
-		ResponseEntity<Void> response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Map.of("numberOfSteps", "123abc"));
+		ResponseEntity<Void> response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Collections.singletonMap("numberOfSteps", "123abc"));
 		assertTrue(response.getStatusCode().is4xxClientError());
 		
 		response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Map.of("numberOfSteps", "11.1"));
@@ -44,7 +46,7 @@ class IntegrationTest {
 	@DisplayName("Valid number of steps")
 	void test_ValidNumberOfSteps() {
 		
-		ResponseEntity<Void> response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Map.of("numberOfSteps", "1000"));
+		ResponseEntity<Void> response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Collections.singletonMap("numberOfSteps", "1000"));
 		assertTrue(response.getStatusCode().is2xxSuccessful());
 	}
 

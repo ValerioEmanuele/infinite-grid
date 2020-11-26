@@ -2,6 +2,7 @@ package blog.valerioemanuele.ab.provider;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -16,12 +17,12 @@ public class FourPointsProvider implements ArgumentsProvider{
 
 	@Override
 	public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
-		List<Point> listPoint = List.of(
+		List<Point> listPoint = Stream.of(
 				Point.builder().x(BigInteger.valueOf(-2)).y(BigInteger.valueOf(2)).build(),
 				Point.builder().x(BigInteger.valueOf(2)).y(BigInteger.valueOf(2)).build(),
 				Point.builder().x(BigInteger.valueOf(2)).y(BigInteger.valueOf(-2)).build(),
 				Point.builder().x(BigInteger.valueOf(-2)).y(BigInteger.valueOf(-2)).build()				
-				);
+				).collect(Collectors.toList());
 		return Stream.of(Arguments.of(listPoint));
 	}
 

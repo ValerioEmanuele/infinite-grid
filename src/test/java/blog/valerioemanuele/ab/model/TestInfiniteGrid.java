@@ -68,7 +68,7 @@ class TestInfiniteGrid {
 	
 	@Test
 	void test_putPoint() {
-		Point p = Point.of(BigInteger.ONE, BigInteger.TWO);
+		Point p = Point.of(BigInteger.ONE, BigInteger.valueOf(2));
 		assertNotNull(memoryInfiniteGrid.put(p));
 	}
 	
@@ -140,7 +140,7 @@ class TestInfiniteGrid {
 	
 	@Test
 	void test_gridGraphicalRepresentation_gridOfOneBlackSquare() throws IOException {
-		Point p = Point.of(BigInteger.ONE, BigInteger.TWO, databaseInfiniteGrid.executionId());
+		Point p = Point.of(BigInteger.ONE, BigInteger.valueOf(2), databaseInfiniteGrid.executionId());
 		
 		assertTrue(databaseInfiniteGrid.put(p));
 		

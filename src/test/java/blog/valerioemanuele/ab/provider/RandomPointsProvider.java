@@ -2,6 +2,7 @@ package blog.valerioemanuele.ab.provider;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -21,7 +22,7 @@ public class RandomPointsProvider implements ArgumentsProvider{
 
 	@Override
 	public Stream<? extends Arguments> provideArguments(ExtensionContext context) throws Exception {
-		List<Point> listPoint = List.of(
+		List<Point> listPoint = Stream.of(
 				Point.builder().x(MIN_X).y(BigInteger.valueOf(1)).build(),
 				Point.builder().x(BigInteger.valueOf(0)).y(MIN_Y).build(),
 				Point.builder().x(BigInteger.valueOf(3)).y(BigInteger.valueOf(10)).build(),
@@ -31,7 +32,7 @@ public class RandomPointsProvider implements ArgumentsProvider{
 				Point.builder().x(BigInteger.valueOf(99)).y(BigInteger.valueOf(15)).build(),
 				Point.builder().x(BigInteger.valueOf(32)).y(BigInteger.valueOf(22)).build(),
 				Point.builder().x(MAX_X).y(BigInteger.valueOf(11)).build()				
-				);
+				).collect(Collectors.toList());
 		return Stream.of(Arguments.of(listPoint));
 	}
 
