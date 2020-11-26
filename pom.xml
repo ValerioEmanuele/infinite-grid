@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>8</java.version>
 		<org.projectlombok.version>1.18.16</org.projectlombok.version>
-		<junit.version>5.7.0</junit.version>
+		<junit.version>5.6.3</junit.version>
 		<spring.version>5.3.1</spring.version>
 		<mockito.version>3.6.0</mockito.version>
 		<spring.boot.version>2.4.0</spring.boot.version>
