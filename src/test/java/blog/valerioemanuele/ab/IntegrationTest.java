@@ -38,7 +38,7 @@ class IntegrationTest {
 		ResponseEntity<Void> response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Collections.singletonMap("numberOfSteps", "123abc"));
 		assertTrue(response.getStatusCode().is4xxClientError());
 		
-		response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Map.of("numberOfSteps", "11.1"));
+		response = testRestTemplate.exchange("/grid/{numberOfSteps}", HttpMethod.PUT, HttpEntity.EMPTY, Void.class, Collections.singletonMap("numberOfSteps", "11.1"));
 		assertTrue(response.getStatusCode().is4xxClientError());
 	}
 	
